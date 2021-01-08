@@ -59,6 +59,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+  console.log("Delete: ", req.params.id);
   Category.destroy({
     where: {
       id: req.params.id,
