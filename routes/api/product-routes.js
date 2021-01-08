@@ -9,17 +9,17 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Category and Tag data
   const products = await Product.findAll({
     attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
-        include: [
-            {
-                model: Category,
-                attributes: ['id', 'category_name']
-            },
-            {
-                model: Tag,
-                attributes: ['id', 'tag_name']
-            }
-        ]
-  }
+      include: [
+        {
+          model: Category,
+          attributes: ['id', 'category_name']
+        },
+        {
+          model: Tag,
+          attributes: ['id', 'tag_name']
+        }
+      ]
+  })
 });
 
 // get one product
@@ -102,12 +102,12 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', async (req, res) => {
+//router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
-  const product = await Product.destroy({
-    where: {
-      id: req.params.id,
-    },
+  //const product = await Product.destroy({
+    //where: {
+      //id: req.params.id,
+    //},
     // attributes: ["id", "category_name"],
     // include: [
     //   {
@@ -115,9 +115,11 @@ router.delete('/:id', async (req, res) => {
     //     attributes: ["id", "product_name", "price", "stock", "category_id"],
     //   },
     // ],
-  });
-  res.json(product);
+  //});
+  //res.json(product);
 
-});
+//});
+
+
 
 module.exports = router;
